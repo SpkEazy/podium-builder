@@ -71,6 +71,17 @@
     }
 
     .textbox_Contact_Details span { display: block; }
+
+    /* ✅ Force broker name to NEVER wrap */
+    .textbox_Contact_Details .broker-name {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: clip;
+      width: 100%;
+      text-align: center;
+      line-height: 1;
+    }
+
     .textbox_Contact_Details .phone-number { color: rgb(227, 31, 42); }
 
     .rotated-textbox { transform: rotate(44deg); transform-origin: top left; overflow: visible; white-space: nowrap; box-sizing: border-box; }
@@ -128,7 +139,9 @@
     </div>
 
     <div class="textbox_Contact_Details" id="textbox_Contact_Details" style="top: 3235px; left: 72px;">
-      <span style="width: 100%; text-align: center;">{{brokerName}}</span>
+      <!-- ✅ broker-name class added (no wrapping, JS scales it up/down) -->
+      <span class="broker-name">{{brokerName}}</span>
+
       <span class="phone-number" style="white-space: pre; font-size: 80px; width: 100%; text-align: center;">{{brokerPhone}}</span>
     </div>
 
