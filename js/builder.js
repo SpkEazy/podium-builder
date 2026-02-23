@@ -387,7 +387,7 @@ function runFontResize(container) {
       const maxW = contact.clientWidth - 10;
 
       // Start BIG so short names (ALEX KRAUSE) expand
-      let fontSize = 60;
+      let fontSize = 90;
       nameSpan.style.fontSize = fontSize + "px";
 
       // Shrink until it fits (so CLIFF MATSHATSHA never wraps)
@@ -465,4 +465,5 @@ async function generateAndDownload(templateType) {
   // Clean preview after download (optional)
   container.innerHTML = "";
 }
+
 
