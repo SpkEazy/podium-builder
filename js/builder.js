@@ -384,15 +384,15 @@ function runFontResize(container) {
     if (nameSpan) {
       nameSpan.style.whiteSpace = "nowrap";
 
-      // ✅ Use the broker-name box itself (accounts for padding perfectly)
-      const maxW = nameSpan.clientWidth;
+      // Use parent width minus safe gutter
+      const maxW = contact.offsetWidth - 40;
 
       // Start BIG so short names expand
       let fontSize = 90;
       nameSpan.style.fontSize = fontSize + "px";
 
       // Shrink until it fits
-      while (nameSpan.scrollWidth > maxW && fontSize > 18) {
+      while (nameSpan.scrollWidth > maxW && fontSize > 40) {
         fontSize--;
         nameSpan.style.fontSize = fontSize + "px";
       }
@@ -466,3 +466,4 @@ async function generateAndDownload(templateType) {
   // Clean preview after download (optional)
   container.innerHTML = "";
 }
+
