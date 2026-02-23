@@ -377,21 +377,21 @@ function runFontResize(container) {
     if (el) adjustFontSize(el);
   });
 
-  // ✅ Broker name: grow big for short names, shrink for long names, always one line
+  // ✅ Broker name: grow big for short names, shrink for long names, always one line, NEVER clip
   const contact = container.querySelector("#textbox_Contact_Details");
   if (contact) {
     const nameSpan = contact.querySelector(".broker-name");
     if (nameSpan) {
       nameSpan.style.whiteSpace = "nowrap";
 
-      // ✅ Match the CSS padding: 18px left + 18px right = 36px
-      const maxW = contact.clientWidth - 36;
+      // ✅ Use the broker-name box itself (accounts for padding perfectly)
+      const maxW = nameSpan.clientWidth;
 
-      // Start BIG so short names (ALEX KRAUSE) expand
+      // Start BIG so short names expand
       let fontSize = 90;
       nameSpan.style.fontSize = fontSize + "px";
 
-      // Shrink until it fits (so CLIFF MATSHATSHA never wraps/clips)
+      // Shrink until it fits
       while (nameSpan.scrollWidth > maxW && fontSize > 18) {
         fontSize--;
         nameSpan.style.fontSize = fontSize + "px";
