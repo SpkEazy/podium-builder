@@ -384,13 +384,14 @@ function runFontResize(container) {
     if (nameSpan) {
       nameSpan.style.whiteSpace = "nowrap";
 
-      const maxW = contact.clientWidth - 10;
+      // ✅ Match the CSS padding: 18px left + 18px right = 36px
+      const maxW = contact.clientWidth - 36;
 
       // Start BIG so short names (ALEX KRAUSE) expand
       let fontSize = 90;
       nameSpan.style.fontSize = fontSize + "px";
 
-      // Shrink until it fits (so CLIFF MATSHATSHA never wraps)
+      // Shrink until it fits (so CLIFF MATSHATSHA never wraps/clips)
       while (nameSpan.scrollWidth > maxW && fontSize > 18) {
         fontSize--;
         nameSpan.style.fontSize = fontSize + "px";
