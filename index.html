@@ -1,0 +1,61 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Podium Page Builder</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+  <style>
+    .preview-panel { display:flex; flex-wrap:wrap; gap:30px; margin-top:20px; }
+    .preview-box { background:#f4f4f4; border:2px solid #ccc; padding:10px; box-shadow:0 0 8px rgba(0,0,0,.1); overflow:auto; }
+    .hint { font-size: 14px; opacity:.75; margin: 6px 0 14px; }
+  </style>
+</head>
+
+<body>
+  <form id="input-form" spellcheck="true" lang="en-GB">
+
+    <!-- ✅ Broker dropdown -->
+    <label style="display:block; margin-bottom:10px;">
+      Select Broker:
+      <select id="broker-select" style="width:100%; padding:8px;"></select>
+    </label>
+    <div class="hint">Broker photo + details come from the dropdown selection.</div>
+
+    <label style="display:block; margin-bottom:10px;">
+      Upload Property Image:
+      <input type="file" id="property-img" accept="image/*" />
+    </label>
+
+    <label style="display:block; margin-bottom:10px;">
+      Upload Map Image:
+      <input type="file" id="map-img" accept="image/*" />
+    </label>
+
+    <label style="display:block; margin-bottom:10px;">
+      Upload Word Document:
+      <input type="file" id="docx-file" accept=".docx" />
+    </label>
+
+    <button type="button" onclick="generateAndDownload('podium')">
+      Download Podium Page
+    </button>
+  </form>
+
+  <h2>Preview</h2>
+  <div class="preview-panel">
+    <div class="preview-block">
+      <h3>Podium Page</h3>
+      <div id="podium-page-preview" class="preview-box"></div>
+    </div>
+  </div>
+
+  <!-- cache-buster helps GitHub Pages not serve old JS -->
+  <script src="js/builder.js?v=1"></script>
+</body>
+</html>

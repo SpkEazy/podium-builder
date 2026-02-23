@@ -1,0 +1,137 @@
+<!-- templates/podium.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=2480, height=3508, initial-scale=1">
+  <title>Podium Auto</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400&display=swap" rel="stylesheet">
+  <style>
+    body, html { margin: 0; padding: 0; background-color: white; }
+
+    .overlay-image_background {
+      position: absolute; top: 0px; left: 0px;
+      width: 2480px; height: 3508px; object-fit: cover;
+    }
+
+    .overlay-image_property, .overlay-image_map {
+      position: absolute; z-index: 2; object-fit: cover;
+    }
+
+    .overlay-image_property { top: 72px; left: 72px; width: 2336px; height: 1254px; }
+    .overlay-image_map { top: 1374px; left: 72px; width: 2336px; height: 1254px; }
+
+    .overlay-image_Broker_Photo {
+      position: absolute; top: 2660px; left: 65px;
+      height: 570px; z-index: 11;
+    }
+
+    .overlay-image_red-tag {
+      position: absolute; top: 72px; left: 1869px;
+      width: 539px; height: auto; z-index: 4;
+    }
+
+    .textbox {
+      position: absolute; color: white;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Roboto', sans-serif; font-weight: 900;
+      text-align: center; overflow: hidden;
+    }
+
+    #textbox_suburb {
+      width: 1348px; height: 211px; left: 1060px; top: 2640px;
+      text-transform: uppercase; z-index: 1;
+      display: flex; flex-direction: column; align-items: flex-end;
+    }
+
+    #textbox_title {
+      width: 1648px; height: 250px; left: 760px; top: 2800px;
+      text-transform: uppercase; white-space: nowrap;
+      padding: 0; margin: 0; z-index: 1; color: rgb(227,31,42);
+      display: flex; flex-direction: column; align-items: flex-end;
+    }
+
+    .textbox_Feature_1, .textbox_Feature_2, .textbox_Feature_3 {
+      position: absolute; padding: 10px; font-family: 'Roboto', sans-serif;
+      width: 1642px; height: 111px; font-weight: 900; color: white;
+      white-space: nowrap; overflow: hidden; z-index: 10; text-transform: uppercase;
+      display: flex; justify-content: flex-end; align-items: center;
+    }
+
+    .textbox_Feature_1 span, .textbox_Feature_2 span, .textbox_Feature_3 span {
+      text-align: right; width: 100%; box-sizing: border-box; font-size: 100px;
+    }
+
+    .textbox_Contact_Details {
+      position: absolute; padding: 10px; font-family: 'Roboto', sans-serif;
+      width: 530px; height: 160px; font-weight: 900; color: white;
+      font-size: 35px; z-index: 8; display: flex; flex-direction: column;
+      align-items: center; text-align: center; text-transform: uppercase;
+    }
+
+    .textbox_Contact_Details span { display: block; }
+    .textbox_Contact_Details .phone-number { color: rgb(227, 31, 42); }
+
+    .rotated-textbox { transform: rotate(44deg); transform-origin: top left; overflow: visible; white-space: nowrap; box-sizing: border-box; }
+
+    #textboxRT1 {
+      width: 430px; height: 100px; left: 2108px; top: 67px;
+      text-transform: uppercase; z-index: 5; padding: 10px; overflow: visible;
+    }
+
+    #textboxRT2 {
+      width: 570px; height: 100px; left: 2008px; top: 75px;
+      text-transform: uppercase; z-index: 5; padding: 10px; overflow: visible;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="capture-container-podium" style="position: relative; width: 2480px; height: 3508px;">
+
+    <!-- ✅ Local repo assets (GitHub Pages safe) -->
+    <img src="assets/background_image.jpg" class="overlay-image_background" alt="Background Image">
+    <img src="assets/red-tag.png" class="overlay-image_red-tag" alt="Red Tag">
+
+    <!-- ✅ Uploaded images (data URLs) -->
+    <img src="{{propertyImage}}" class="overlay-image_property" alt="Property Image">
+    <img src="{{mapImage}}" class="overlay-image_map" alt="Property Map">
+
+    <!-- ✅ Broker selection (dynamic) -->
+    <img src="{{brokerPhoto}}" class="overlay-image_Broker_Photo" alt="Broker Photo">
+
+    <div id="textbox_suburb" class="textbox">
+      <span>{{suburb}}</span>
+    </div>
+
+    <div id="textbox_title" class="textbox">
+      <span>{{headline}}</span>
+    </div>
+
+    <div id="textboxRT1" class="textbox rotated-textbox">
+      <span>{{tag1}}</span>
+    </div>
+
+    <div id="textboxRT2" class="textbox rotated-textbox">
+      <span>{{tag2}}</span>
+    </div>
+
+    <div class="textbox_Feature_1" id="textbox_Feature_1" style="top: 3055px; left: 760px;">
+      <span>{{feat1}}</span>
+    </div>
+    <div class="textbox_Feature_2" id="textbox_Feature_2" style="top: 3190px; left: 760px;">
+      <span>{{feat2}}</span>
+    </div>
+    <div class="textbox_Feature_3" id="textbox_Feature_3" style="top: 3325px; left: 760px;">
+      <span>{{feat3}}</span>
+    </div>
+
+    <div class="textbox_Contact_Details" id="textbox_Contact_Details" style="top: 3235px; left: 72px;">
+      <span style="width: 100%; text-align: center;">{{brokerName}}</span>
+      <span class="phone-number" style="white-space: pre; font-size: 80px; width: 100%; text-align: center;">{{brokerPhone}}</span>
+    </div>
+
+  </div>
+</body>
+</html>
