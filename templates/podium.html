@@ -72,7 +72,7 @@
 
     .textbox_Contact_Details span { display: block; }
 
-    /* ✅ Force broker name to NEVER wrap */
+    /* ✅ Force broker name to NEVER wrap + prevent edge clipping */
     .textbox_Contact_Details .broker-name {
       white-space: nowrap;
       overflow: hidden;
@@ -80,6 +80,10 @@
       width: 100%;
       text-align: center;
       line-height: 1;
+
+      /* ✅ prevents letters like "R" clipping on edges */
+      padding: 0 18px;
+      box-sizing: border-box;
     }
 
     .textbox_Contact_Details .phone-number { color: rgb(227, 31, 42); }
@@ -139,7 +143,6 @@
     </div>
 
     <div class="textbox_Contact_Details" id="textbox_Contact_Details" style="top: 3235px; left: 72px;">
-      <!-- ✅ broker-name class added (no wrapping, JS scales it up/down) -->
       <span class="broker-name">{{brokerName}}</span>
 
       <span class="phone-number" style="white-space: pre; font-size: 80px; width: 100%; text-align: center;">{{brokerPhone}}</span>
