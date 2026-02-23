@@ -377,22 +377,21 @@ function runFontResize(container) {
     if (el) adjustFontSize(el);
   });
 
-  // ✅ Broker name: grow big for short names, shrink for long names, always one line, NEVER clip
+  // ✅ Broker name: grow big for short names, shrink for long names, always one line
   const contact = container.querySelector("#textbox_Contact_Details");
   if (contact) {
     const nameSpan = contact.querySelector(".broker-name");
     if (nameSpan) {
       nameSpan.style.whiteSpace = "nowrap";
 
-      // Use parent width minus safe gutter
-      const maxW = contact.offsetWidth - 40;
+      const maxW = contact.clientWidth - 10;
 
-      // Start BIG so short names expand
+      // Start BIG so short names (ALEX KRAUSE) expand
       let fontSize = 90;
       nameSpan.style.fontSize = fontSize + "px";
 
-      // Shrink until it fits
-      while (nameSpan.scrollWidth > maxW && fontSize > 40) {
+      // Shrink until it fits (so CLIFF MATSHATSHA never wraps)
+      while (nameSpan.scrollWidth > maxW && fontSize > 18) {
         fontSize--;
         nameSpan.style.fontSize = fontSize + "px";
       }
