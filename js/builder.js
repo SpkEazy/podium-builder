@@ -377,24 +377,25 @@ function runFontResize(container) {
     if (el) adjustFontSize(el);
   });
 
-  // Keep phone big but ensure it fits
+  // ✅ Broker name: grow big for short names, shrink for long names, always one line
   const contact = container.querySelector("#textbox_Contact_Details");
   if (contact) {
-    const spans = contact.querySelectorAll("span");
-    spans.forEach(sp => {
-      // For phone, we don't want it to shrink too aggressively
-      if (sp.classList.contains("phone-number")) return;
-      // For broker name, fit safely
-      const parent = contact;
-      const maxW = parent.clientWidth - 10;
-      // Give name a reasonable height to fit
-      let fontSize = 60;
-      sp.style.fontSize = fontSize + "px";
-      while (sp.scrollWidth > maxW && fontSize > 18) {
+    const nameSpan = contact.querySelector(".broker-name");
+    if (nameSpan) {
+      nameSpan.style.whiteSpace = "nowrap";
+
+      const maxW = contact.clientWidth - 10;
+
+      // Start BIG so short names (ALEX KRAUSE) expand
+      let fontSize = 90;
+      nameSpan.style.fontSize = fontSize + "px";
+
+      // Shrink until it fits (so CLIFF MATSHATSHA never wraps)
+      while (nameSpan.scrollWidth > maxW && fontSize > 18) {
         fontSize--;
-        sp.style.fontSize = fontSize + "px";
+        nameSpan.style.fontSize = fontSize + "px";
       }
-    });
+    }
   }
 }
 
@@ -451,8 +452,7 @@ async function generateAndDownload(templateType) {
   await waitForImagesToLoad(container);
   await new Promise(resolve => setTimeout(resolve, 300));
 
-  // ✅ Print-ready without being massive:
-  // 2480x3508 at scale 2 gives strong quality but smaller than scale 3.
+  // ✅ Print-ready without being massive
   const canvas = await html2canvas(container, {
     scale: 2,
     useCORS: true,
