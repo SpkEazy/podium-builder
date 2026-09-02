@@ -141,6 +141,16 @@ const BROKERS = {
     brokerEmail: "luanda@skyriseproperties.co.za",
     brokerPhoto: "assets/brokers/luanda-tlhotlhalemaje/broker-photo.png"
   },
+
+  "natasha-du-toit": {
+    displayName: "Natasha Du Toit",
+    brokerName: "NATASHA DU TOIT",
+    brokerPhone: "066 296 6420",
+    brokerEmail: "natasha@auctioninc.co.za",
+    brokerPhoto: "assets/brokers/natasha-du-toit/broker-photo.png"
+  },
+
+  
   "nic-brett": {
     displayName: "Nic Brett",
     brokerName: "NIC BRETT",
