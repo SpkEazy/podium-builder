@@ -134,6 +134,15 @@ const BROKERS = {
     brokerEmail: "keith@auctioninc.co.za",
     brokerPhoto: "assets/brokers/keith-nkosi/broker-photo.png"
   },
+  
+  "kelsie-barlow": {
+    displayName: "Kelsie Barlow",
+    brokerName: "KELSIE BARLOW",
+    brokerPhone: "081 073 2670",
+    brokerEmail: "kelsie@auctioninc.co.za",
+    brokerPhoto: "assets/brokers/kelsie-barlow/broker-photo.png"
+ },
+  
   "luanda-tlhotlhalemaje": {
     displayName: "Luanda Tlhotlhalemaje",
     brokerName: "LUANDA TLHOTLHALEMAJE",
