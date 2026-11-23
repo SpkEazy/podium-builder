@@ -174,6 +174,18 @@ const BROKERS = {
     brokerEmail: "reece@auctioninc.co.za",
     brokerPhoto: "assets/brokers/reece-louw/broker-photo.png"
   },
+
+  
+  "saul-novick": {
+    displayName: "Saul Novick",
+    brokerName: "SAUL NOVICK",
+    brokerPhone: "073 475 2104",
+    brokerEmail: "saul@auctioninc.co.za",
+    brokerPhoto: "assets/brokers/saul-novick/broker-photo.png"
+ },
+
+
+  
   "reshma-sookran": {
     displayName: "Reshma Sookran",
     brokerName: "RESHMA SOOKRAN",
